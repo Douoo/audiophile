@@ -88,8 +88,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="brand">
-          <div>
+        <section className="brand | flex items-center flex-col sm:flex-row my-40">
+          <div className="flex-1">
             <h1>Bringing you the best audio gear</h1>
             <p>
               Located at the heart of New York City, Audiophile is the premier
@@ -102,6 +102,7 @@ export default function Home() {
             </p>
           </div>
           <Image
+            className="flex-1"
             src="/assets/shared/desktop/image-best-gear.jpg"
             width={540}
             height={580}
@@ -110,8 +111,8 @@ export default function Home() {
         </section>
       </main>
 
-      <footer>
-        <div>
+      <footer className="container mx-auto pt-16 pb-12">
+        <div className="flex justify-between">
           <Link href="">
             <Image
               src="assets/shared/desktop/logo.svg"
@@ -121,7 +122,7 @@ export default function Home() {
             />
           </Link>
           <nav>
-            <ul>
+            <ul className="flex gap-10">
               <li>
                 <Link href="#">Home</Link>
               </li>
@@ -137,17 +138,19 @@ export default function Home() {
             </ul>
           </nav>
         </div>
-        <div className="flex flex-col gap-6 sm:flex-row  sm:gap-12">
-          <p>
-            Audiophile is an all in one stop to fulfill your audio needs. We're
-            a small team of music lovers and sound specialists who are devoted
-            to helping you get the most out of personal audio. Come and visit
-            our demo facility - we’re open 7 days a week.
-          </p>
-          <br />
-          <p>Copyright 2021. All Rights Reserved</p>
+        <div className="flex flex-col items-center justify-between gap-6 sm:flex-row  sm:gap-12 mt-10 mb-20">
+          <div className="max-w-[540px]">
+            <p>
+              Audiophile is an all in one stop to fulfill your audio needs.
+              We're a small team of music lovers and sound specialists who are
+              devoted to helping you get the most out of personal audio. Come
+              and visit our demo facility - we’re open 7 days a week.
+            </p>
+            <br />
+            <p>Copyright 2021. All Rights Reserved</p>
+          </div>
           <nav>
-            <ul>
+            <ul className="flex gap-8">
               <li>
                 <Link href="#">
                   <svg
