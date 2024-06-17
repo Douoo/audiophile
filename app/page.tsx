@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import CategoryList from "./components/CategoryList";
 
 export default function Home() {
   return (
@@ -46,8 +47,8 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="hero container mx-auto">
-          <div className="flex">
+        <div className="hero container mx-auto flex flex-col items-center sm:flex-row">
+          <div className="">
             <div>
               <span className="">NEW PRODUCT</span>
               <h1 className="uppercase">XX99 Mark II Headphones</h1>
@@ -56,38 +57,62 @@ export default function Home() {
                 made for the passionate music enthusiast.
               </p>
             </div>
+            <button>See Product</button>
           </div>
-          <button>See Product</button>
+          <Image
+            src="/assets/home/desktop/image-hero.jpg"
+            alt="hero"
+            width={700}
+            height={880}
+          />
         </div>
       </header>
       <main className="container mx-auto">
-        <section>
-          <div className="flex">
+        <CategoryList />
+        <section className="featured">
+          <div className="flex items-center gap-12">
+            <Image
+              className="flex-1"
+              src="/assets/home/desktop/image-speaker-zx9.png"
+              alt="zx9 speaker"
+              width={410}
+              height={490}
+            />
+            <div className="flex-1">
+              <h1>ZX9 SPEAKER</h1>
+              <p>
+                Upgrade to premium speakers that are phenomenally built to
+                deliver truly remarkable sound.
+              </p>
+              <button>See Product</button>
+            </div>
+          </div>
+          <div className="flex items-center justify-center gap-12">
             <div>
-              <h1>Headphones</h1>
-              <Link href="">Shop</Link>
+              <h1>ZX7 SPEAKER</h1>
+              <Link href="">See Product</Link>
+            </div>
+            <Image
+              className="flex-1"
+              src="/assets/home/desktop/image-speaker-zx7.jpg"
+              alt="zx7 speaker"
+              width={410}
+              height={490}
+            />
+          </div>
+          <div className="flex items-center gap-12">
+            <Image
+              src="/assets/product-yx1-earphones/desktop/image-gallery-2.jpg"
+              alt="zx9 speaker"
+              width={445}
+              height={280}
+            />
+            <div>
+              <h1>YX1 SPEAKER</h1>
+              <Link href="">See Product</Link>
             </div>
           </div>
         </section>
-        <section className="featured">
-          <div>
-            <h1>ZX9 SPEAKER</h1>
-            <p>
-              Upgrade to premium speakers that are phenomenally built to deliver
-              truly remarkable sound.
-            </p>
-            <button>See Product</button>
-          </div>
-          <div>
-            <h1>ZX7 SPEAKER</h1>
-            <Link href="">See Product</Link>
-          </div>
-          <div>
-            <h1>YX1 SPEAKER</h1>
-            <Link href="">See Product</Link>
-          </div>
-        </section>
-
         <section className="brand | flex items-center flex-col sm:flex-row my-40">
           <div className="flex-1">
             <h1>Bringing you the best audio gear</h1>
