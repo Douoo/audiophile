@@ -2,7 +2,7 @@ import Category from "./Category";
 
 export default function CategoryList() {
   return (
-    <section className="categories mt-35 mb-40 flex justify-evenly w-full">
+    <section className="categories my-28 flex flex-col sm:flex-row justify-evenly w-full">
       <Category
         image="/assets/shared/desktop/image-category-thumbnail-headphones.png"
         title="Earphones"
