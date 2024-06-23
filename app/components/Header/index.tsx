@@ -4,7 +4,7 @@ import Navbar from "../Navbar";
 export default function Header() {
   return (
     <header className="bg-[var(--clr-neutral-900)] text-[var(--clr-neutral-100)]">
-      <Navbar />
+      <Navbar className="lg:absolute top-0 left-0 lg:translate-x-[10%] " />
       <div className="hero h-[45rem]">
         <div className="container-custom lg:flex flex-col justify-center h-full">
           <div className="text-center lg:text-start w-[375px] h-full  lg:flex flex-col justify-center items-start">
@@ -18,7 +18,7 @@ export default function Header() {
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-            <Link className="btn btn-primary" href={"/"}>
+            <Link className="btn btn-primary" href={"/product"}>
               See Product
             </Link>
           </div>

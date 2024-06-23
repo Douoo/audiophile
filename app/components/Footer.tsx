@@ -16,18 +16,26 @@ export default function Footer() {
           />
           {/* </Link> */}
           <nav>
-            <ul className="flex flex-col sm:flex-row gap-4">
+            <ul className="flex flex-col sm:flex-row gap-4 uppercase">
               <li>
-                <Link href="#">Home</Link>
+                <Link className="hover:text-[var(--clr-primary-900)]" href="#">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link href="#">Headphones</Link>
+                <Link className="hover:text-[var(--clr-primary-900)]" href="#">
+                  Headphones
+                </Link>
               </li>
               <li>
-                <Link href="#">Speakers</Link>
+                <Link className="hover:text-[var(--clr-primary-900)]" href="#">
+                  Speakers
+                </Link>
               </li>
               <li>
-                <Link href="#">Earphones</Link>
+                <Link className="hover:text-[var(--clr-primary-900)]" href="#">
+                  Earphones
+                </Link>
               </li>
             </ul>
           </nav>

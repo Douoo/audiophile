@@ -1,9 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Navbar() {
+export default function Navbar({
+  className,
+}: {
+  className?: string;
+}) {
   return (
-    <div className="absolute top-0 left-0 translate-x-[10%] py-8 container-custom mx-auto flex justify-between items-center">
+    <div
+      className={`${className} py-8 container-custom mx-auto flex justify-between items-center`}
+    >
       <button className="md:hidden">
         <Image
           src="assets/shared/tablet/icon-hamburger.svg"

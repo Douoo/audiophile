@@ -9,15 +9,15 @@ export default function Category({
   title: string;
 }) {
   return (
-    <div className="flex flex-col items-center justify-end text-center uppercase">
+    <div className="relative flex flex-col items-center justify-end text-center uppercase">
       <Image
-        className=""
+        className="absolute bottom-24 z-10"
         src={image}
         width={124}
-        height={145}
+        height={100}
         alt="earphones"
       />
-      <div className="bg-neutral-300 | relative min-w-64 lg:min-w-[350px] rounded flex flex-col items-center justify-end bottom-20 z-[-1] w-full  h-[160px] pb-8">
+      <div className="bg-neutral-300 | relative min-w-64 rounded-xl overflow-hidden flex flex-col items-center justify-end py-12 w-full">
         <h1 className="font-bold mb-4">{title}</h1>
         <Link
           className="text-[#787878] text-sm flex items-center gap-2 font-bold"

@@ -1,0 +1,25 @@
+.preview {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media(min-width:45rem) {
+    .preview {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+
+    .preview [data-first] {
+        grid-area: 1;
+    }
+
+    .preview [data-second] {
+        grid-area: 2;
+    }
+
+
+    .preview [data-third] {
+        grid-area: 3;
+        border: 2px solid red;
+    }
+}
