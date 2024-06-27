@@ -11,7 +11,7 @@ export default function BrandDetail() {
       />
       <div className="flex-1 text-center lg:text-start lg:order-1">
         <h1 className="heading-md uppercase font-bold my-8">
-          Bringing you the <span className="clr-primary-900">best</span>
+          Bringing you the <span className="clr-primary-900">best </span>
           audio gear
         </h1>
         <p className="clr-neutral-800">

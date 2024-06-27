@@ -5,6 +5,7 @@ import BrandDetail from "../components/BrandDetail";
 import Image from "next/image";
 import CategoryList from "../components/CategoryList";
 import PreviewGridImages from "./preview_grid_images";
+import ProductList from "../components/ProductHorizontalList";
 
 export default function Product() {
   return (
@@ -87,21 +88,7 @@ export default function Product() {
           <h2 className="heading-md font-bold uppercase text-center mb-6">
             You may also like
           </h2>
-          <div className="flex">
-            <div className="text-center grid place-items-center gap-8">
-              <Image
-                className="lg:py-16 px-24 bg-neutral-300 w-full"
-                src={
-                  "/assets/shared/desktop/image-xx99-mark-one-headphones.jpg"
-                }
-                alt="xx99-mark-one-headphone"
-                width={150}
-                height={195}
-              />
-              <h3 className="font-bold">XX99 MARK I</h3>
-              <button className="btn btn-primary">See Product</button>
-            </div>
-          </div>
+          <ProductList />
         </section>
         <CategoryList />
         <BrandDetail />

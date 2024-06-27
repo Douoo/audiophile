@@ -16,7 +16,7 @@ export default function Footer() {
           />
           {/* </Link> */}
           <nav>
-            <ul className="flex flex-col sm:flex-row gap-4 uppercase">
+            <ul className="flex flex-col sm:flex-row gap-4 uppercase font-bold">
               <li>
                 <Link className="hover:text-[var(--clr-primary-900)]" href="#">
                   Home
