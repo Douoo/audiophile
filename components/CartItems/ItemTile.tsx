@@ -8,7 +8,7 @@ export default function ItemTile({ item }: { item: CartItem }) {
       <div className="flex gap-3 items-center">
         <Image
           className="rounded-lg"
-          src={`/${item.image}`}
+          src={item.image}
           alt={item.name}
           height={64}
           width={64}

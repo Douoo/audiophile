@@ -13,7 +13,7 @@ export default function ProductItem({ item }: { item: Item }) {
     <div className="text-center grid place-items-center gap-8">
       <Image
         className="px-12 bg-neutral-300 w-full object-contain rounded-xl overflow-hidden"
-        src={`/${item.image.desktop}`}
+        src={item.image.desktop}
         alt="xx99-mark-one-headphone"
         width={150}
         height={195}

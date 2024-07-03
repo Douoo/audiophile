@@ -130,7 +130,7 @@ export default function Checkout() {
               <h2 className="heading-md font-bold">Summary</h2>
               <ul>
                 {cartItems.map((item) => (
-                  <ItemSummary item={item} />
+                  <ItemSummary key={item.id} item={item} />
                 ))}
               </ul>
               <button className="btn btn-primary w-full">Continue & Pay</button>

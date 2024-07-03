@@ -66,13 +66,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <picture>
               <source
                 media="(min-width: 60rem)"
-                srcSet={`/${product.image.desktop}`}
+                srcSet={`${product.image.desktop}`}
               />
               <source
                 media="(min-width: 45rem)"
-                srcSet={`/${product.image.tablet}`}
+                srcSet={`${product.image.tablet}`}
               />
-              <img src={`/${product.image.mobile}`} alt="" />
+              <img src={`${product.image.mobile}`} alt="" />
             </picture>
           </div>
           <div>
@@ -105,8 +105,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <div>
             <h2 className="heading-md font-bold uppercase mb-6">In the box</h2>
             <ul>
-              {product.includes.map((content) => (
-                <li className="mb-2">
+              {product.includes.map((content, index) => (
+                <li key={index} className="mb-2">
                   <span className="clr-primary-900 uppercase font-semibold">
                     {content.quantity}X
                   </span>

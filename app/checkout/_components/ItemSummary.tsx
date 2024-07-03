@@ -8,7 +8,7 @@ export default function ItemSummary({ item }: { item: CartItem }) {
       <div className="flex items-center gap-4">
         <Image
           className="rounded-lg"
-          src={`/${item.image}`}
+          src={item.image}
           alt="product image"
           width={64}
           height={64}

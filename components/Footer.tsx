@@ -44,9 +44,9 @@ export default function Footer() {
           <div className="max-w-[540px]">
             <p>
               Audiophile is an all in one stop to fulfill your audio needs.
-              We're a small team of music lovers and sound specialists who are
-              devoted to helping you get the most out of personal audio. Come
-              and visit our demo facility - we’re open 7 days a week.
+              We&apos;re a small team of music lovers and sound specialists who
+              are devoted to helping you get the most out of personal audio.
+              Come and visit our demo facility - we’re open 7 days a week.
             </p>
             <br />
             <p>Copyright 2021. All Rights Reserved</p>
@@ -54,7 +54,7 @@ export default function Footer() {
           <nav>
             <ul className="flex gap-8">
               <li>
-                <Link href="#">
+                <Link href="#" aria-label="Visit audiophile facebook page">
                   <svg
                     width="24"
                     height="24"
@@ -69,7 +69,10 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#">
+                <Link
+                  href="#"
+                  aria-label="Visit audiophile x (formerly twitter) profile"
+                >
                   <svg
                     width="24"
                     height="20"
@@ -84,7 +87,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#">
+                <Link href="#" aria-label="Visit audiophile instagram profile">
                   <svg
                     width="24"
                     height="24"
