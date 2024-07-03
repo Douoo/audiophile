@@ -1,36 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
+import CartButton from "./CartButton";
 
-export default function Navbar({
-  className,
-}: {
-  className?: string;
-}) {
+export default function Navbar({ className }: { className?: string }) {
   return (
     <div
-      className={`${className} py-8 container-custom mx-auto flex justify-between items-center`}
+      className={`${className} z-50 relative py-8 container-custom mx-auto flex justify-between items-center`}
     >
       <button className="md:hidden">
         <Image
-          src="assets/shared/tablet/icon-hamburger.svg"
+          src="/assets/shared/tablet/icon-hamburger.svg"
           height={16}
           width={15}
           alt="menu"
         />
         <span className="sr-only">Menu</span>
       </button>
-      <Image
-        src="assets/shared/desktop/logo.svg"
-        height={165}
-        width={143}
-        alt="audiophile logo"
-      />
+      <a href="/">
+        <Image
+          priority={true}
+          src="/assets/shared/desktop/logo.svg"
+          height={165}
+          width={143}
+          alt="audiophile logo"
+        />
+      </a>
+
       <nav className="hidden md:block">
         <ul className="flex gap-10">
           <li>
             <Link
               className="uppercase font-semibold hover:text-[var(--clr-primary-900)]"
-              href=""
+              href="/"
             >
               Home
             </Link>
@@ -61,14 +62,7 @@ export default function Navbar({
           </li>
         </ul>
       </nav>
-      <button>
-        <Image
-          src="assets/shared/desktop/icon-cart.svg"
-          alt="cart"
-          width={23}
-          height={15}
-        />
-      </button>
+      <CartButton />
     </div>
   );
 }

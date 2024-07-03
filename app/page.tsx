@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Header from "./components/Header";
+import Header from "../components/Header";
 import Link from "next/link";
-import CategoryList from "./components/CategoryList";
-import Footer from "./components/Footer";
-import BrandDetail from "./components/BrandDetail";
+import CategoryList from "../components/CategoryList";
+import Footer from "../components/Footer";
+import BrandDetail from "../components/BrandDetail";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <main className="container-custom">
         <CategoryList />
         <section className="featured">
-          <div className="bg-primary-900 clr-neutral-100 | text-center lg:text-start grid place-items-center py-14 px-6 rounded-lg lg:grid-flow-col overflow-hidden">
+          <div className="featured_card bg-primary-900 clr-neutral-100 | text-center lg:text-start grid place-items-center py-14 px-6 rounded-lg lg:grid-flow-col overflow-hidden">
             <Image
               className="lg:relative top-24 w-[172px] h-[200px] lg:w-[415px] lg:h-[495px] object-contain pb-8 flex-1"
               src="/assets/home/desktop/image-speaker-zx9.png"
@@ -20,13 +20,15 @@ export default function Home() {
               width={410}
               height={490}
             />
-            <div className="max-w-[345px]">
+            <div className="max-w-[345px] z-10">
               <h1 className="heading-lg font-bold uppercase">ZX9 SPEAKER</h1>
               <p>
                 Upgrade to premium speakers that are phenomenally built to
                 deliver truly remarkable sound.
               </p>
-              <button className="btn btn-dark mt-6">See Product</button>
+              <Link href={"/product/zx9-speaker"} className="btn btn-dark mt-6">
+                See Product
+              </Link>
             </div>
           </div>
           <div className="relative rounded-lg py-8 overflow-hidden">
@@ -34,7 +36,7 @@ export default function Home() {
               <h1 className="heading-lg | font-bold uppercase mb-8">
                 ZX7 SPEAKER
               </h1>
-              <Link className="btn btn-outline" href="/product">
+              <Link className="btn btn-outline" href="/product/zx7-speaker">
                 See Product
               </Link>
             </div>
@@ -58,7 +60,7 @@ export default function Home() {
               <h1 className="heading-lg font-bold uppercase mb-8">
                 YX1 SPEAKER
               </h1>
-              <Link className="btn btn-outline" href="">
+              <Link className="btn btn-outline" href="product/yx1-earphones">
                 See Product
               </Link>
             </div>

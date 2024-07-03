@@ -1,9 +1,16 @@
 import Image, { getImageProps } from "next/image";
-import { getResponsiveImageProps } from "../utils/responsive_images";
-import styles from "./preview_grid_image.module.css";
-import { table } from "console";
+import { getResponsiveImageProps } from "../../utils/responsive_images";
 
-export default function PreviewGridImages() {
+import { MediaImage } from "../[slug]/page";
+import styles from "./preview_grid_image.module.css";
+
+export interface Gallery {
+  first: MediaImage;
+  second: MediaImage;
+  third: MediaImage;
+}
+
+export default function PreviewGridImages({ gallery }: { gallery: Gallery }) {
   const common = {
     alt: "xx99 mark two headphones",
     width: 445,
@@ -23,19 +30,21 @@ export default function PreviewGridImages() {
   return (
     <section>
       <div className={styles.preview}>
-        <img
-          className="grid-row-start-1 rounded-xl overflow-hidden"
-          src="/assets/product-xx99-mark-two-headphones/mobile/image-gallery-1.jpg"
+        <Image
+          className="grid-row-start-1 rounded-xl overflow-hidden w-full"
+          src={`/${gallery.first.desktop}`}
           alt="Best gear"
+          width={500}
+          height={500}
         />
         <img
           className="md:col-start-1  md:col-end-2 md:row-start-2 rounded-xl overflow-hidden w-full h-full"
-          src="/assets/product-xx99-mark-two-headphones/desktop/image-gallery-2.jpg"
+          src={`/${gallery.second.desktop}`}
           alt="Best gear"
         />
         <img
           className="md:col-start-2 md:row-start-1 md:row-span-2 rounded-xl object-cover overflow-hidden h-full"
-          src="/assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg"
+          src={`/${gallery.third.desktop}`}
           alt="xx99-mark-two-headphones preview 3"
         />
       </div>
