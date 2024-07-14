@@ -39,7 +39,7 @@ export default function Navbar({ className }: { className?: string }) {
           <li>
             <Link
               className="uppercase font-semibold hover:text-[var(--clr-primary-900)]"
-              href=""
+              href="/headphones"
             >
               Headphones
             </Link>
@@ -47,7 +47,7 @@ export default function Navbar({ className }: { className?: string }) {
           <li>
             <Link
               className="uppercase font-semibold hover:text-[var(--clr-primary-900)]"
-              href=""
+              href="/speakers"
             >
               Speakers
             </Link>
@@ -55,7 +55,7 @@ export default function Navbar({ className }: { className?: string }) {
           <li>
             <Link
               className="uppercase font-semibold hover:text-[var(--clr-primary-900)]"
-              href=""
+              href="/earphones"
             >
               Earphones
             </Link>

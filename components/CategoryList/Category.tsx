@@ -4,9 +4,11 @@ import Link from "next/link";
 export default function Category({
   image,
   title,
+  linkTo,
 }: {
   image: string;
   title: string;
+  linkTo: string;
 }) {
   return (
     <div className="relative flex flex-col items-center justify-end text-center uppercase">
@@ -15,13 +17,13 @@ export default function Category({
         src={image}
         width={124}
         height={100}
-        alt="earphones"
+        alt={title}
       />
       <div className="bg-neutral-300 | relative min-w-64 rounded-xl overflow-hidden flex flex-col items-center justify-end py-12 w-full">
         <h1 className="font-bold mb-4">{title}</h1>
         <Link
           className="text-[#787878] text-sm flex items-center gap-2 font-bold"
-          href=""
+          href={linkTo}
         >
           Shop
           <span>
