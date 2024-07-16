@@ -40,6 +40,8 @@ export interface MediaImage {
   desktop: string;
 }
 
+// /product/item
+
 export default async function Page({ params }: { params: { slug: string } }) {
   const fetchProduct = async () => {
     const response = await fetch("https://api.npoint.io/85b198e0228f38646e30/");

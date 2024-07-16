@@ -18,7 +18,10 @@ export default function Header() {
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-            <Link className="btn btn-primary" href={"/product/xx99-mark-one-headphones"}>
+            <Link
+              className="btn btn-primary"
+              href={"/headphones/xx99-mark-one-headphones"}
+            >
               See Product
             </Link>
           </div>
