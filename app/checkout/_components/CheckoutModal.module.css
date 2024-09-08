@@ -1,0 +1,32 @@
+.dialog {
+    inset-block-start: 2%;
+    inset-block-end: auto;
+}
+
+@media(min-width:45rem) and (max-width:60rem) {
+    .dialog {
+        inset-block-start: 10%;
+        inset-block-end: auto;
+        inset-inline: 10%;
+    }
+}
+
+@media(min-width:60rem) {
+    .dialog {
+        inset-block-start: 15%;
+        inset-block-end: auto;
+        /* max-width: 540px; */
+    }
+}
+
+.collapse {
+    max-height: 5.75rem;
+    overflow: hidden;
+    transition: max-height 0.2s;
+}
+
+.collapse.active {
+    max-height: 12rem;
+    overflow: scroll;
+    transition: max-height 0.2s;
+}

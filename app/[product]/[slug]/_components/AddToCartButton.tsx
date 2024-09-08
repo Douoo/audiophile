@@ -1,14 +1,17 @@
 "use client";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import {
+  useCartContext,
   CartContext,
   CartItem,
   CartProvider,
-} from "../../../context/CartContext";
+  CartAddPayload,
+} from "../../../../context/CartContext";
 
 export default function AddToCartButton({ item }: { item: CartItem }) {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCartContext();
   const [qty, setQty] = useState(1);
+  console.log("Rendered add to card btn");
 
   const incrementItem = () => setQty(qty + 1);
   const decrementItem = () => {
@@ -18,8 +21,8 @@ export default function AddToCartButton({ item }: { item: CartItem }) {
   };
 
   const addItemToCart = () => {
-    const product = { ...item, quantity: qty };
-    addToCart(product);
+    const payload: CartAddPayload = { item, quantity: qty };
+    addToCart(payload);
   };
   return (
     <CartProvider>

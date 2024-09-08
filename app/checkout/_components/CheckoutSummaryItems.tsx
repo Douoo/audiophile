@@ -2,10 +2,10 @@ import { CartItem } from "@/context/CartContext";
 import { formatPrice } from "@/utils/currency_format";
 import Image from "next/image";
 
-export default function ItemSummary({ item }: { item: CartItem }) {
+export default function CheckoutSummaryItems({ item }: { item: CartItem }) {
   return (
-    <div className="flex justify-between items-center">
-      <div className="flex items-center gap-4">
+    <li className="flex justify-between items-start mb-6">
+      <div className="flex items-start gap-4">
         <Image
           className="rounded-lg"
           src={item.image}
@@ -14,13 +14,13 @@ export default function ItemSummary({ item }: { item: CartItem }) {
           height={64}
         />
         <div>
-          <span className="block uppercase font-bold">{item.name}</span>
+          <span className="block mb-1 uppercase font-bold">{item.name}</span>
           <span className="tracking-wider leading-6" data-currency="$">
             {formatPrice(item.price)}
           </span>
         </div>
       </div>
       <span className="clr-neutral-800">x{item.quantity}</span>
-    </div>
+    </li>
   );
 }

@@ -7,7 +7,7 @@ export default function Header() {
       <Navbar className="lg:absolute top-0 left-0 lg:translate-x-[8%] " />
       <div className="hero h-[45rem]">
         <div className="container-custom lg:flex flex-col justify-center h-full">
-          <div className="text-center lg:text-start w-[375px] h-full  lg:flex flex-col justify-center items-start">
+          <div className="text-center mx-auto lg:mx-0 lg:text-start max-w-[375px] h-full  lg:flex flex-col justify-center items-start">
             <span className="block mb-6 clr-neutral-200 tracking-[10px] leading-3 font-light text-caption">
               NEW PRODUCT
             </span>
@@ -18,7 +18,10 @@ export default function Header() {
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-            <Link className="btn btn-primary" href={"/product/xx99-mark-one-headphones"}>
+            <Link
+              className="btn btn-primary"
+              href={"/product/xx99-mark-one-headphones"}
+            >
               See Product
             </Link>
           </div>

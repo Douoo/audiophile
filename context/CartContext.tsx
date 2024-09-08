@@ -1,5 +1,5 @@
 "use client";
-import React, { useReducer } from "react";
+import React, { useCallback, useContext, useReducer } from "react";
 //Create the interface the cart
 
 export interface CartItem {
@@ -7,14 +7,14 @@ export interface CartItem {
   name: string;
   image: string;
   price: number;
-  quantity?: number;
+  quantity: number;
 }
 
 interface CartState {
   cartItems: CartItem[];
   itemCount: number;
   totalPrice: number;
-  addToCart: (item: CartItem) => void;
+  addToCart: (data: CartAddPayload) => void;
   removeFromCart: (id: number) => void;
   removeAll: () => void;
 }
@@ -23,7 +23,7 @@ const initialState: CartState = {
   cartItems: [],
   itemCount: 0,
   totalPrice: 0.0,
-  addToCart: (item: CartItem) => {},
+  addToCart: (data: CartAddPayload) => {},
   removeFromCart: (id: number) => {},
   removeAll: () => {},
 };
@@ -36,50 +36,66 @@ enum CartActionType {
   REMOVE,
   REMOVE_ALL,
 }
+export interface CartAddPayload {
+  item: CartItem;
+  quantity: number;
+}
 
 type CartAction = {
   type: CartActionType;
-  payload?: CartItem | number;
+  payload?: CartAddPayload | number;
 };
 
 //Create the logic
 const cartReducer = (state: CartState, action: CartAction) => {
+  console.log("cartReducer Called");
+  console.log(action.payload);
+  let items: CartItem[];
+  let itemIndex: number;
+  let totalPrice: number;
   switch (action.type) {
     case CartActionType.ADD:
       //Check if the item is not in the list add it
-      const addedItem = action.payload! as CartItem;
-      let items = [...state.cartItems];
-      let itemFound = items.findIndex((item) => item.id == addedItem.id);
-      let prevItemCount = state.itemCount;
+      const addedItem = (action.payload as CartAddPayload).item;
+      const itemQty = (action.payload as CartAddPayload).quantity;
 
+      console.log("Clicked on add");
+      items = [...state.cartItems];
+      itemIndex = items.findIndex((item) => item.id == addedItem.id);
+      if (itemIndex !== -1) {
+        let itemFound = state.cartItems[itemIndex];
+        const updatedItem = {
+          ...itemFound,
+          quantity: itemFound.quantity + itemQty,
+        };
+
+        items[itemIndex] = updatedItem;
+      } else {
+        addedItem.quantity = itemQty;
+        items.push(addedItem);
+        // totalPrice = state.totalPrice + addedItem.price;
+      }
+      console.log("itemss", items);
+      totalPrice = items.reduce(
+        (acc, item) => acc + item.price * item.quantity!,
+        0
+      );
       const itemCount: number = items.reduce(
         (acc, item) => acc + item.quantity!,
-        prevItemCount
+        0
       );
-
-      let totalPrice: number;
-      if (itemFound !== -1) {
-        items[itemFound].quantity! = addedItem.quantity!;
-        totalPrice = items.reduce(
-          (acc, item) => acc + item.price * item.quantity!,
-          0
-        );
-
-        return {
-          ...state,
-          cartItems: items,
-          itemCount,
-        };
-      } else {
-        items.push(addedItem);
-        totalPrice = state.totalPrice + addedItem.price;
-        return {
-          ...state,
-          cartItems: items,
-          itemCount: items.length,
-          totalPrice,
-        };
-      }
+      console.log("Cart state", {
+        ...state,
+        cartItems: items,
+        itemCount,
+        totalPrice,
+      });
+      return {
+        ...state,
+        cartItems: items,
+        itemCount,
+        totalPrice,
+      };
     case CartActionType.REMOVE_ALL:
       //Remove all items in cart
       return {
@@ -89,14 +105,21 @@ const cartReducer = (state: CartState, action: CartAction) => {
         cartItems: [],
       };
     case CartActionType.REMOVE:
-      items = state.cartItems;
-      itemFound = items.findIndex(
+      items = [...state.cartItems];
+      itemIndex = items.findIndex(
         (item) => item.id == (action.payload as number)
       );
-      totalPrice = state.totalPrice - items[itemFound].price;
+      if (items[itemIndex].quantity > 1) {
+        const itemFound = items[itemIndex];
+        const updatedItem = { ...itemFound, quantity: itemFound.quantity - 1 };
+        items[itemIndex] = updatedItem;
+      } else {
+        items = items.filter((item) => item.id !== items[itemIndex].id);
+      }
+      totalPrice = state.totalPrice - items[itemIndex].price;
       return {
         ...state,
-        cartItems: items.filter((item) => item.id !== items[itemFound].id),
+        cartItems: items,
         itemCount: state.itemCount--,
         totalPrice,
       };
@@ -107,18 +130,17 @@ export function CartProvider({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const [cartState, dispatch] = useReducer(cartReducer, initialState);
-  const addToCart = (item: CartItem) => {
-    dispatch({ type: CartActionType.ADD, payload: item });
-  };
+  const addToCart = useCallback((data: CartAddPayload) => {
+    dispatch({ type: CartActionType.ADD, payload: data });
+  }, []);
 
-  const removeFromCart = (id: number) => {
+  const removeFromCart = useCallback((id: number) => {
     dispatch({ type: CartActionType.REMOVE, payload: id });
-  };
+  }, []);
 
-  const removeAll = () => {
+  const removeAll = useCallback(() => {
     dispatch({ type: CartActionType.REMOVE_ALL });
-  };
-
+  }, []);
   const value: CartState = {
     ...cartState,
     addToCart,
@@ -127,3 +149,5 @@ export function CartProvider({
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
+
+export const useCartContext = () => useContext(CartContext);

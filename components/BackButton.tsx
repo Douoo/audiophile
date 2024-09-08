@@ -5,7 +5,7 @@ export default function BackButton() {
   const router = useRouter();
   return (
     <button
-      className="block mt-4 hover:text-[var(--clr-primary-900)]"
+      className="block pt-8 hover:text-[var(--clr-primary-900)] font-semibold clr-neutral-700"
       onClick={() => router.back()}
     >
       Go Back

@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className=" bg-neutral-900 clr-neutral-100 | pt-16 pb-12">
       <div className="container-custom">
-        <div className="flex flex-col sm:flex-row items-center text-center md:justify-between gap-8">
+        <div className="flex flex-col lg:flex-row md:items-start lg:items-center text-center md:justify-between gap-8">
           {/* <Link className="block" href=""> */}
           <Image
             className=""
@@ -18,22 +18,31 @@ export default function Footer() {
           <nav>
             <ul className="flex flex-col sm:flex-row gap-4 uppercase font-bold">
               <li>
-                <Link className="hover:text-[var(--clr-primary-900)]" href="#">
+                <Link className="hover:text-[var(--clr-primary-900)]" href="/">
                   Home
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-[var(--clr-primary-900)]" href="#">
+                <Link
+                  className="hover:text-[var(--clr-primary-900)]"
+                  href="/headphones"
+                >
                   Headphones
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-[var(--clr-primary-900)]" href="#">
+                <Link
+                  className="hover:text-[var(--clr-primary-900)]"
+                  href="/speakers"
+                >
                   Speakers
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-[var(--clr-primary-900)]" href="#">
+                <Link
+                  className="hover:text-[var(--clr-primary-900)]"
+                  href="/earphones"
+                >
                   Earphones
                 </Link>
               </li>

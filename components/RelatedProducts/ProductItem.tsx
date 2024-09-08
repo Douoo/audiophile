@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MediaImage } from "@/app/product/[slug]/page";
+import { MediaImage } from "@/models/image_model"
 import Link from "next/link";
 
 export interface Item {

@@ -16,6 +16,9 @@ const config: Config = {
       fontFamily: {
         manrope: ["var(--ff-manrope)"],
       },
+      transitionProperty: {
+        'max-height': 'max-height'
+      }
     },
   },
   plugins: [],

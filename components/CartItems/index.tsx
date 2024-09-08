@@ -1,17 +1,15 @@
 "use client";
 import Link from "next/link";
-import { useContext } from "react";
 
-import { CartContext } from "@/context/CartContext";
+import { useCartContext } from "@/context/CartContext";
 import ItemTile from "./ItemTile";
 import { formatPrice } from "@/utils/currency_format";
 
 export default function CartItems() {
-  const { cartItems, itemCount, totalPrice, removeAll } =
-    useContext(CartContext);
+  const { cartItems, itemCount, totalPrice, removeAll } = useCartContext();
   const totalCost = formatPrice(totalPrice);
   return (
-    <div className="fixed right-[6.5rem] top-28 bg-white text-black w-[320px] lg:w-[375px] p-8 rounded-lg space-y-8 z-50">
+    <div className="fixed right-5 lg:right-[6.5rem] top-28 bg-white text-black w-[320px] lg:w-[375px] p-8 rounded-lg space-y-8 z-50">
       {itemCount !== 0 && (
         <div className="flex justify-between">
           <h4 className="uppercase font-bold">Cart ({itemCount})</h4>
